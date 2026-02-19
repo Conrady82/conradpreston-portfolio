@@ -55,6 +55,16 @@ export default function Nav() {
               GitHub ↗
             </a>
           </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/conrad-preston/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-300 hover:text-cyan-400 transition-colors text-sm font-medium tracking-wide"
+            >
+              LinkedIn ↗
+            </a>
+          </li>
         </ul>
 
         {/* Mobile hamburger */}

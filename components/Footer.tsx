@@ -13,6 +13,14 @@ export default function Footer() {
             GitHub
           </a>
           <a
+            href="https://www.linkedin.com/in/conrad-preston/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-cyan-400 transition-colors"
+          >
+            LinkedIn
+          </a>
+          <a
             href="mailto:conrad@conradpreston.dev"
             className="hover:text-cyan-400 transition-colors"
           >

@@ -80,12 +80,12 @@ const openSourceProjects = [
     github: "https://github.com/Conrady82/nextjs-ai-saas-starter",
   },
   {
-    name: "LLM Guardrails",
-    tagline: "Safety middleware for LLM-powered apps",
+    name: "Aegis",
+    tagline: "Shield your LLM apps from prompt injection & data leaks",
     description:
-      "Production-ready LLM safety layer: detects prompt injection, PII leakage, jailbreak attempts, and policy violations. FastAPI middleware that wraps any OpenAI or Anthropic integration with configurable rule sets.",
+      "Production-ready safety middleware for AI applications. Detects prompt injection attacks, PII exfiltration, jailbreak attempts, and output policy violations — all without an extra LLM call. Built from patterns discovered running Agent Assist at Capital One.",
     tech: ["Python", "FastAPI", "Pydantic", "OpenAI", "Anthropic Claude", "Docker"],
-    highlight: "Pattern-based detection — no LLM calls required, zero latency overhead",
+    highlight: "25+ attack signatures, zero latency overhead — pattern-based detection, no extra API calls",
     color: "from-rose-500/10 to-rose-500/5",
     border: "border-rose-500/20 hover:border-rose-500/50",
     tag: "Open Source",

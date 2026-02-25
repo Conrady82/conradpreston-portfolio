@@ -44,6 +44,18 @@ const workProjects = [
 
 const openSourceProjects = [
   {
+    name: "WBR Automation",
+    tagline: "Amazon-style Weekly Business Reviews in 15 minutes",
+    description:
+      "Automates the manual 2–4 hour Weekly Business Review process used at Amazon. Daily notes CLI, GitHub API metrics collection, AI-generated narrative via Claude, PDF export, immutable SHA256 snapshots, and week-over-week comparison with trend detection.",
+    tech: ["Python", "Anthropic Claude API", "GitHub API", "Rich CLI", "Bash", "pandoc"],
+    highlight: "Cuts WBR prep from 2–4 hours to 15 minutes — the same operational discipline as Amazon, without the overhead",
+    color: "from-amber-500/10 to-amber-500/5",
+    border: "border-amber-500/20 hover:border-amber-500/50",
+    tag: "Open Source",
+    github: "https://github.com/Conrady82/wbr-automation",
+  },
+  {
     name: "RAG Starter Kit",
     tagline: "Production-ready RAG in 3 minutes",
     description:

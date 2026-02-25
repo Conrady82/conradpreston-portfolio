@@ -44,6 +44,18 @@ const workProjects = [
 
 const openSourceProjects = [
   {
+    name: "Aegis",
+    tagline: "Shield your LLM apps from prompt injection & data leaks",
+    description:
+      "Production-ready safety middleware for AI applications. Detects prompt injection attacks, PII exfiltration, jailbreak attempts, and output policy violations — all without an extra LLM call. Built from patterns discovered running Agent Assist at Capital One.",
+    tech: ["Python", "FastAPI", "Pydantic", "OpenAI", "Anthropic Claude", "Docker"],
+    highlight: "25+ attack signatures, zero latency overhead — pattern-based detection, no extra API calls",
+    color: "from-rose-500/10 to-rose-500/5",
+    border: "border-rose-500/20 hover:border-rose-500/50",
+    tag: "Open Source",
+    github: "https://github.com/Conrady82/llm-guardrails",
+  },
+  {
     name: "WBR Automation",
     tagline: "Amazon-style Weekly Business Reviews in 15 minutes",
     description:
@@ -78,18 +90,6 @@ const openSourceProjects = [
     border: "border-orange-500/20 hover:border-orange-500/50",
     tag: "Open Source",
     github: "https://github.com/Conrady82/nextjs-ai-saas-starter",
-  },
-  {
-    name: "Aegis",
-    tagline: "Shield your LLM apps from prompt injection & data leaks",
-    description:
-      "Production-ready safety middleware for AI applications. Detects prompt injection attacks, PII exfiltration, jailbreak attempts, and output policy violations — all without an extra LLM call. Built from patterns discovered running Agent Assist at Capital One.",
-    tech: ["Python", "FastAPI", "Pydantic", "OpenAI", "Anthropic Claude", "Docker"],
-    highlight: "25+ attack signatures, zero latency overhead — pattern-based detection, no extra API calls",
-    color: "from-rose-500/10 to-rose-500/5",
-    border: "border-rose-500/20 hover:border-rose-500/50",
-    tag: "Open Source",
-    github: "https://github.com/Conrady82/llm-guardrails",
   },
   {
     name: "Data Pipeline Kit",

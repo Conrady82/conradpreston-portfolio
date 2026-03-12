@@ -44,6 +44,18 @@ const workProjects = [
 
 const openSourceProjects = [
   {
+    name: "Agentic Pipeline",
+    tagline: "Multi-agent research system with supervisor orchestration",
+    description:
+      "A production-quality multi-agent research pipeline that demonstrates the supervisor/worker architecture pattern. A Supervisor agent coordinates three specialized workers — Researcher (web search), Critic (quality evaluation), and Synthesizer (report generation) — with shared state, agent memory, and iterative refinement loops.",
+    tech: ["Python", "LangChain", "OpenAI", "Multi-Agent", "LCEL", "DuckDuckGo"],
+    highlight: "Supervisor/worker pattern with critique loops, shared memory, and full type safety — built as a teaching-grade reference implementation",
+    color: "from-purple-500/10 to-purple-500/5",
+    border: "border-purple-500/20 hover:border-purple-500/50",
+    tag: "Agentic AI",
+    github: "https://github.com/Conrady82/agentic-pipeline",
+  },
+  {
     name: "Aegis",
     tagline: "Shield your LLM apps from prompt injection & data leaks",
     description:

@@ -6,28 +6,51 @@ import { useReducedMotion } from "@/lib/useReducedMotion";
 
 const skillGroups = [
   {
+    category: "AI / LLMs",
+    skills: [
+      "RAG Architectures",
+      "Agentic Systems (HITL)",
+      "Vector DBs (ChromaDB, Pinecone, FAISS)",
+      "Glean (custom connectors)",
+      "Elasticsearch (semantic + keyword)",
+      "LangChain",
+      "Hugging Face",
+      "Ragas Eval",
+    ],
+  },
+  {
     category: "Languages",
     skills: ["Python", "TypeScript", "JavaScript"],
   },
   {
+    category: "Developer Tooling",
+    skills: [
+      "CLI Applications",
+      "Interactive Terminal UIs",
+      "IDE-adjacent Tooling",
+      "Workflow Orchestration",
+      "Plugin/Skill Systems",
+    ],
+  },
+  {
     category: "Frontend",
-    skills: ["React", "Next.js", "Tailwind CSS", "HTML/CSS"],
+    skills: ["React", "Next.js (App Router)", "Vue", "Tailwind", "shadcn-style components"],
   },
   {
     category: "Backend",
-    skills: ["Node.js", "FastAPI", "REST APIs", "GraphQL"],
+    skills: ["Node.js", "FastAPI", "REST APIs", "GraphQL", "Postgres", "SQLite", "Snowflake"],
   },
   {
     category: "Cloud & Infrastructure",
-    skills: ["AWS", "Kubernetes", "Docker", "Terraform"],
+    skills: ["AWS", "Kubernetes", "Docker", "Vercel", "DigitalOcean"],
   },
   {
-    category: "AI & Data",
-    skills: ["LLMs", "RAG", "Vector Databases", "LangChain", "Data Pipelines", "Kafka / Kinesis"],
+    category: "Data",
+    skills: ["Kafka / Kinesis", "ETL Pipelines", "Real-time Event Processing", "Snowflake"],
   },
   {
     category: "Observability",
-    skills: ["OpenTelemetry", "Prometheus", "Grafana", "Datadog"],
+    skills: ["OpenTelemetry", "New Relic", "Structured Logging", "On-call Discipline"],
   },
 ];
 

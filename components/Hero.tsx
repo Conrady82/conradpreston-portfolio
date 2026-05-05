@@ -41,7 +41,7 @@ export default function Hero() {
           {...fadeUp(0.1)}
           className="text-cyan-400 font-mono text-sm tracking-widest uppercase mb-4"
         >
-          Available for freelance
+          Open to senior roles · select freelance
         </motion.p>
 
         <motion.h1
@@ -51,7 +51,7 @@ export default function Hero() {
           Senior Software Engineer
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-400">
-            AI & Data Pipeline Specialist
+            AI Tools & Agent Engineering
           </span>
         </motion.h1>
 
@@ -59,8 +59,8 @@ export default function Hero() {
           {...fadeUp(0.3)}
           className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed"
         >
-          I build AI-powered tools and high-throughput data systems that scale.
-          From RAG pipelines to 100K+ events/minute infrastructure — engineered for production.
+          I ship LLM-powered tools and agentic systems that work in production — instrumented,
+          evaluated, on-call survivable, with audit trails and human-in-the-loop where it matters.
         </motion.p>
 
         <motion.div

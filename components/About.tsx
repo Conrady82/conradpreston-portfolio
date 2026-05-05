@@ -5,9 +5,9 @@ import { useRef } from "react";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
 const stats = [
-  { value: "100K+", label: "Events/minute processed" },
-  { value: "5+", label: "Years SWE experience" },
-  { value: "$100–150", label: "Per hour" },
+  { value: "500+", label: "Engineers using AI tools I built" },
+  { value: "100K+", label: "Events/minute pipelines shipped" },
+  { value: "Hours → Min", label: "Vuln remediation, agentic + HITL" },
 ];
 
 export default function About() {
@@ -41,24 +41,27 @@ export default function About() {
           >
             <p>
               I&apos;m a Senior Software Engineer at <span className="text-slate-200">Capital One</span>, where
-              I design and ship AI-powered tools and high-throughput data infrastructure that operates
-              at serious scale.
+              I build AI tools and lead the workflows + standards that govern how the engineering organization
+              adopts AI day-to-day.
             </p>
             <p>
-              My work spans the full stack — from React and TypeScript frontends to Python backends,
-              cloud infrastructure on AWS, Kubernetes orchestration, and end-to-end observability
-              with OpenTelemetry. I&apos;ve built systems that ingest and process over{" "}
-              <span className="text-cyan-400 font-medium">100,000 events per minute</span> reliably.
+              My most recent production work is a{" "}
+              <span className="text-cyan-400 font-medium">vulnerability remediation agent</span> that
+              compresses remediation cycles from hours or days down to minutes — pulling vuln data,
+              deduplicating through noise, applying organization-approved patches across all affected
+              repos, with a full audit trail and human-in-the-loop verification at each gate.
             </p>
             <p>
-              On the AI side, I&apos;ve shipped production RAG systems (LangChain, vector databases),
-              LLM-powered search tools, and translation pipelines — all designed to solve real
-              business problems, not demos.
+              Before that, I built <span className="text-slate-200">Agent Assist</span> (LLM-powered
+              search across thousands of internal docs, used by 500+ engineers daily) on a Glean backend
+              I provisioned with custom connectors I authored and Elasticsearch indexes I designed.
+              And the data infrastructure underneath — Google Workspace ingestion at 100K+ events/min,
+              org-wide OpenTelemetry observability from near-zero to 95% coverage.
             </p>
             <p>
-              Freelancing lets me bring this same rigor to your project. Whether you need an
-              AI prototype, a data backbone, or a polished full-stack product — I build things
-              that hold up in production.
+              I&apos;m open to senior / staff IC roles building AI tools at globally remote, async-first
+              companies. I also take select freelance — recently shipped a middle-funnel sales agent
+              for an SMB end-to-end (scope to production deploy, 9 weeks).
             </p>
           </motion.div>
 

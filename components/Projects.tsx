@@ -6,15 +6,51 @@ import { useReducedMotion } from "@/lib/useReducedMotion";
 
 const workProjects = [
   {
-    name: "Agent Assist",
-    tagline: "AI-powered documentation search",
+    name: "Vulnerability Remediation Agent",
+    tagline: "Agentic security patching with audit trail + human-in-the-loop",
     description:
-      "Built at Capital One to eliminate the pain of hunting through thousands of internal docs. Engineers type a question in natural language and get instant, semantically relevant answers — no more ctrl+F across 50 wikis.",
-    tech: ["Python", "LLMs", "Vector Embeddings", "React", "FastAPI"],
-    highlight: "Reduced doc search time from minutes to seconds for 500+ engineers",
+      "Built at Capital One to compress vulnerability remediation from hours or days into minutes. The agent pulls vuln data from internal sources, deduplicates through the noise to surface unique issues, applies organization-approved patched versions across all affected repositories, and generates a full audit trail with human-in-the-loop verification at each gate.",
+    tech: ["Agentic AI", "LLMs", "Human-in-the-Loop", "Audit Trails", "Python"],
+    highlight: "Hours/days → minutes at organization scale, with HITL safety gates and full audit trail",
+    color: "from-rose-500/10 to-rose-500/5",
+    border: "border-rose-500/20 hover:border-rose-500/50",
+    tag: "Agentic AI / Security",
+    github: null,
+  },
+  {
+    name: "Agent Assist",
+    tagline: "Enterprise LLM-powered documentation search",
+    description:
+      "LLM-powered semantic search across thousands of internal engineering documents at Capital One. Built on a Glean backend I provisioned, with custom Glean connectors I authored to plug additional internal sources into the search graph, and Elasticsearch indexes I designed and stood up for ranking and retrieval. TypeScript/React UI on top.",
+    tech: ["LLMs", "Glean", "Custom Connectors", "Elasticsearch", "Vector Embeddings", "TypeScript", "React"],
+    highlight: "500+ engineers daily, 40% reduction in doc search time — the reference RAG architecture for downstream AI tools at the org",
     color: "from-cyan-500/10 to-cyan-500/5",
     border: "border-cyan-500/20 hover:border-cyan-500/50",
-    tag: "AI / NLP",
+    tag: "AI / RAG",
+    github: null,
+  },
+  {
+    name: "Org-wide AI Tooling & Workflow Standards",
+    tagline: "Designing how a large enterprise adopts AI day-to-day",
+    description:
+      "Leading how Capital One's engineering organization adopts AI: rolling out Claude skills across teams, designing the workflows engineers use to integrate AI into their daily flow, and authoring the standards that govern how AI ships internally. The work that decides whether enterprise AI adoption goes well or badly.",
+    tech: ["Claude Skills", "Org-Wide Standards", "Workflow Design", "AI Strategy"],
+    highlight: "Standards author + rollout lead for AI adoption across engineering",
+    color: "from-indigo-500/10 to-indigo-500/5",
+    border: "border-indigo-500/20 hover:border-indigo-500/50",
+    tag: "AI Leadership",
+    github: null,
+  },
+  {
+    name: "SMB Sales-Automation Agent",
+    tagline: "Middle-funnel agent for an Upwork client (NDA)",
+    description:
+      "End-to-end ownership: a middle-funnel sales follow-up agent for an SMB. Third-party CRM integration with human-review draft mode (no auto-send to leads), GPT-4o-mini drafting, SQLite state, cron-scheduled on a small VPS. Owned scope, architecture, code, deploy, and client comms — async, across timezones.",
+    tech: ["GPT-4o-mini", "CRM Integration", "Python", "SQLite", "Cron", "VPS"],
+    highlight: "9-week engagement, owned solo from scope to production deploy; HITL draft mode preserved client trust",
+    color: "from-emerald-500/10 to-emerald-500/5",
+    border: "border-emerald-500/20 hover:border-emerald-500/50",
+    tag: "Agentic AI / Client Work",
     github: null,
   },
   {
@@ -44,6 +80,18 @@ const workProjects = [
 ];
 
 const openSourceProjects = [
+  {
+    name: "Workflow Architecture",
+    tagline: "Local-first orchestration for agentic coding work",
+    description:
+      "A system for orchestrating agentic coding work across multiple projects: SQLite + FTS5 lesson retrieval (BM25-ranked, severity-tagged), auto-invoked session bootstrap/outro hooks, a project-registration skill, and an idea-to-wired-project skill. CLI-driven, terminal-rendered, stdlib-only Python, runs locally with no paid APIs.",
+    tech: ["Python (stdlib)", "SQLite + FTS5", "BM25", "Claude Skills", "CLI"],
+    highlight: "88+ unit tests, six-phase architecture, all running locally — built because the developer tooling I wanted didn't exist",
+    color: "from-sky-500/10 to-sky-500/5",
+    border: "border-sky-500/20 hover:border-sky-500/50",
+    tag: "Developer Tooling",
+    github: null,
+  },
   {
     name: "Agentic Pipeline",
     tagline: "Multi-agent research system with supervisor orchestration",

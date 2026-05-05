@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 
 const stats = [
   { value: "100K+", label: "Events/minute processed" },
@@ -12,15 +13,20 @@ const stats = [
 export default function About() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const reduced = useReducedMotion();
+  const fadeY = (delay = 0) =>
+    reduced
+      ? { initial: false, animate: { opacity: 1, y: 0 }, transition: { duration: 0 } }
+      : { initial: { opacity: 0, y: 30 }, animate: inView ? { opacity: 1, y: 0 } : {}, transition: { duration: 0.6, delay } };
+  const fadeX = (sign: 1 | -1, delay = 0) =>
+    reduced
+      ? { initial: false, animate: { opacity: 1, x: 0 }, transition: { duration: 0 } }
+      : { initial: { opacity: 0, x: 30 * sign }, animate: inView ? { opacity: 1, x: 0 } : {}, transition: { duration: 0.6, delay } };
 
   return (
     <section id="about" className="py-24 px-6" ref={ref}>
       <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-        >
+        <motion.div {...fadeY()}>
           <p className="text-cyan-400 font-mono text-sm tracking-widest uppercase mb-3">About</p>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">
             Engineering at scale, <br />
@@ -30,9 +36,7 @@ export default function About() {
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            {...fadeX(-1, 0.1)}
             className="space-y-4 text-slate-400 leading-relaxed"
           >
             <p>
@@ -59,9 +63,7 @@ export default function About() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            {...fadeX(1, 0.2)}
             className="space-y-4"
           >
             {stats.map((stat) => (

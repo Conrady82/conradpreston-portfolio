@@ -2,11 +2,19 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 
 export default function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const reduced = useReducedMotion();
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const headerMotion = reduced
+    ? { initial: false as const, animate: { opacity: 1, y: 0 }, transition: { duration: 0 } }
+    : { initial: { opacity: 0, y: 30 }, animate: inView ? { opacity: 1, y: 0 } : {}, transition: { duration: 0.6 } };
+  const formMotion = reduced
+    ? { initial: false as const, animate: { opacity: 1, y: 0 }, transition: { duration: 0 } }
+    : { initial: { opacity: 0, y: 30 }, animate: inView ? { opacity: 1, y: 0 } : {}, transition: { duration: 0.6, delay: 0.1 } };
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -38,9 +46,7 @@ export default function Contact() {
     <section id="contact" className="py-24 px-6 bg-slate-800/20" ref={ref}>
       <div className="max-w-2xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          {...headerMotion}
           className="text-center mb-12"
         >
           <p className="text-cyan-400 font-mono text-sm tracking-widest uppercase mb-3">Contact</p>
@@ -60,9 +66,7 @@ export default function Contact() {
 
         <motion.form
           onSubmit={handleSubmit}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          {...formMotion}
           className="space-y-5"
         >
           <div className="grid sm:grid-cols-2 gap-5">

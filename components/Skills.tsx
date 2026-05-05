@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 
 const skillGroups = [
   {
@@ -33,14 +34,20 @@ const skillGroups = [
 export default function Skills() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const reduced = useReducedMotion();
+  const headerMotion = reduced
+    ? { initial: false as const, animate: { opacity: 1, y: 0 }, transition: { duration: 0 } }
+    : { initial: { opacity: 0, y: 30 }, animate: inView ? { opacity: 1, y: 0 } : {}, transition: { duration: 0.6 } };
+  const cardMotion = (i: number) =>
+    reduced
+      ? { initial: false as const, animate: { opacity: 1, y: 0 }, transition: { duration: 0 } }
+      : { initial: { opacity: 0, y: 20 }, animate: inView ? { opacity: 1, y: 0 } : {}, transition: { duration: 0.5, delay: i * 0.08 + 0.1 } };
 
   return (
     <section id="skills" className="py-24 px-6" ref={ref}>
       <div className="max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          {...headerMotion}
           className="mb-12"
         >
           <p className="text-cyan-400 font-mono text-sm tracking-widest uppercase mb-3">
@@ -53,9 +60,7 @@ export default function Skills() {
           {skillGroups.map((group, i) => (
             <motion.div
               key={group.category}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.08 + 0.1 }}
+              {...cardMotion(i)}
               className="p-5 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-cyan-500/20 transition-colors"
             >
               <h3 className="text-sm font-semibold text-cyan-400 mb-3 uppercase tracking-wide">

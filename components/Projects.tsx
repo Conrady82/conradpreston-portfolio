@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 
 const workProjects = [
   {
@@ -129,12 +130,13 @@ type Project = {
   github: string | null;
 };
 
-function ProjectCard({ project, i, inView }: { project: Project; i: number; inView: boolean }) {
+function ProjectCard({ project, i, inView, reduced }: { project: Project; i: number; inView: boolean; reduced: boolean }) {
+  const motionProps = reduced
+    ? { initial: false as const, animate: { opacity: 1, y: 0 }, transition: { duration: 0 } }
+    : { initial: { opacity: 0, y: 30 }, animate: inView ? { opacity: 1, y: 0 } : {}, transition: { duration: 0.5, delay: i * 0.1 + 0.2 } };
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: i * 0.1 + 0.2 }}
+      {...motionProps}
       className={`p-6 rounded-2xl bg-gradient-to-br ${project.color} border ${project.border} transition-all duration-300`}
     >
       <div className="flex flex-col md:flex-row md:items-start gap-6">
@@ -185,14 +187,16 @@ function ProjectCard({ project, i, inView }: { project: Project; i: number; inVi
 export default function Projects() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
+  const reduced = useReducedMotion();
+  const headerMotion = reduced
+    ? { initial: false as const, animate: { opacity: 1, y: 0 }, transition: { duration: 0 } }
+    : { initial: { opacity: 0, y: 30 }, animate: inView ? { opacity: 1, y: 0 } : {}, transition: { duration: 0.6 } };
 
   return (
     <section id="projects" className="py-24 px-6 bg-slate-800/20" ref={ref}>
       <div className="max-w-5xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          {...headerMotion}
           className="mb-12"
         >
           <p className="text-cyan-400 font-mono text-sm tracking-widest uppercase mb-3">Work</p>
@@ -206,7 +210,7 @@ export default function Projects() {
           <p className="text-slate-500 font-mono text-xs uppercase tracking-widest mb-6">Production Work</p>
           <div className="grid md:grid-cols-1 gap-6">
             {workProjects.map((project, i) => (
-              <ProjectCard key={project.name} project={project} i={i} inView={inView} />
+              <ProjectCard key={project.name} project={project} i={i} inView={inView} reduced={reduced} />
             ))}
           </div>
         </div>
@@ -216,7 +220,7 @@ export default function Projects() {
           <p className="text-slate-500 font-mono text-xs uppercase tracking-widest mb-6">Open Source</p>
           <div className="grid md:grid-cols-2 gap-6">
             {openSourceProjects.map((project, i) => (
-              <ProjectCard key={project.name} project={project} i={i + workProjects.length} inView={inView} />
+              <ProjectCard key={project.name} project={project} i={i + workProjects.length} inView={inView} reduced={reduced} />
             ))}
           </div>
         </div>

@@ -59,6 +59,20 @@ export const metadata: Metadata = {
   },
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Conrad Preston",
+  url: "https://conradpreston.dev",
+  jobTitle: "Senior Software Engineer",
+  description:
+    "Senior Software Engineer specializing in AI-powered tools, high-throughput data pipelines, and React/TypeScript full-stack development.",
+  sameAs: [
+    "https://github.com/Conrady82",
+    "https://www.linkedin.com/in/conrad-preston/",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -69,6 +83,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-900 text-slate-200`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         {children}
       </body>
     </html>

@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 
 const links = [
   { label: "About", href: "#about" },
@@ -12,6 +13,7 @@ const links = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const reduced = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -83,9 +85,9 @@ export default function Nav() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
+            {...(reduced
+              ? { initial: false, animate: { opacity: 1, height: "auto" }, exit: { opacity: 1, height: "auto" }, transition: { duration: 0 } }
+              : { initial: { opacity: 0, height: 0 }, animate: { opacity: 1, height: "auto" }, exit: { opacity: 0, height: 0 } })}
             className="md:hidden bg-slate-800/95 backdrop-blur-md border-t border-slate-700"
           >
             <ul className="px-6 py-4 flex flex-col gap-4">

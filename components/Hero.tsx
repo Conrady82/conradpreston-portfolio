@@ -1,7 +1,25 @@
 "use client";
 import { motion } from "framer-motion";
+import { useReducedMotion } from "@/lib/useReducedMotion";
 
 export default function Hero() {
+  const reduced = useReducedMotion();
+  const fadeUp = (delay: number) =>
+    reduced
+      ? { initial: false, animate: { opacity: 1, y: 0 }, transition: { duration: 0 } }
+      : {
+          initial: { opacity: 0, y: 20 },
+          animate: { opacity: 1, y: 0 },
+          transition: { delay, duration: 0.6 },
+        };
+  const avatarMotion = reduced
+    ? { initial: false, animate: { scale: 1, opacity: 1 }, transition: { duration: 0 } }
+    : {
+        initial: { scale: 0, opacity: 0 },
+        animate: { scale: 1, opacity: 1 },
+        transition: { duration: 0.5 },
+      };
+
   return (
     <section className="min-h-screen flex items-center justify-center px-6 pt-20 relative overflow-hidden">
       {/* Background gradient */}
@@ -12,9 +30,7 @@ export default function Hero() {
       <div className="max-w-4xl mx-auto text-center relative z-10">
         {/* Avatar */}
         <motion.div
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          {...avatarMotion}
           className="mx-auto mb-8 w-24 h-24 rounded-full bg-gradient-to-br from-cyan-500 to-indigo-600 flex items-center justify-center text-3xl font-bold text-white shadow-lg shadow-cyan-500/20"
         >
           {/* Replace with <Image src="/headshot.jpg" alt="Conrad Preston" fill className="rounded-full object-cover" /> when headshot is available */}
@@ -22,18 +38,14 @@ export default function Hero() {
         </motion.div>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.6 }}
+          {...fadeUp(0.1)}
           className="text-cyan-400 font-mono text-sm tracking-widest uppercase mb-4"
         >
           Available for freelance
         </motion.p>
 
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
+          {...fadeUp(0.2)}
           className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight"
         >
           Senior Software Engineer
@@ -44,9 +56,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
+          {...fadeUp(0.3)}
           className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed"
         >
           I build AI-powered tools and high-throughput data systems that scale.
@@ -54,9 +64,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
+          {...fadeUp(0.4)}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <a

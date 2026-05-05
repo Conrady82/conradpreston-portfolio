@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://conradpreston.dev"),
   title: "Conrad Preston | Senior Software Engineer",
   description:
     "Senior Software Engineer specializing in AI-powered tools, high-throughput data pipelines, and React/TypeScript full-stack development.",
@@ -26,6 +27,13 @@ export const metadata: Metadata = {
     "freelance",
   ],
   authors: [{ name: "Conrad Preston" }],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: "Conrad Preston | Senior Software Engineer",
     description:
@@ -33,6 +41,21 @@ export const metadata: Metadata = {
     url: "https://conradpreston.dev",
     siteName: "Conrad Preston",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Conrad Preston — Senior Software Engineer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Conrad Preston | Senior Software Engineer",
+    description:
+      "Senior Software Engineer specializing in AI-powered tools, high-throughput data pipelines, and React/TypeScript full-stack development.",
+    images: ["/og-image.png"],
   },
 };
 
